@@ -1,14 +1,8 @@
-/***
- * Excerpted from "Hello, Android",
- * published by The Pragmatic Bookshelf.
- * Copyrights apply to this code. It may not be used to create training material, 
- * courses, books, articles, and the like. Contact us if you are in doubt.
- * We make no guarantees that this code is fit for any purpose. 
- * Visit http://www.pragmaticprogrammer.com/titles/eband3 for more book information.
-***/
+
 package org.example.sudoku;
 
 import android.app.Activity;
+import android.widget.DigitalClock;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -38,6 +32,8 @@ public class Sudoku extends Activity implements OnClickListener {
       aboutButton.setOnClickListener(this);
       View exitButton = findViewById(R.id.exit_button);
       exitButton.setOnClickListener(this);
+      
+      DigitalClock dc = (DigitalClock) findViewById(R.id.digitalClock1);
    }
 
    @Override
