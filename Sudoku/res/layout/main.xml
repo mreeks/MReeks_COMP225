@@ -20,25 +20,25 @@
 
     <Button
         android:id="@+id/continue_button"
-        android:layout_width="fill_parent"
+        android:layout_width="143dp"
         android:layout_height="wrap_content"
         android:text="@string/continue_label" />
 
     <Button
         android:id="@+id/new_button"
-        android:layout_width="fill_parent"
+        android:layout_width="142dp"
         android:layout_height="wrap_content"
         android:text="@string/new_game_label" />
 
     <Button
         android:id="@+id/about_button"
-        android:layout_width="fill_parent"
+        android:layout_width="141dp"
         android:layout_height="wrap_content"
         android:text="@string/about_label" />
 
     <Button
         android:id="@+id/exit_button"
-        android:layout_width="fill_parent"
+        android:layout_width="142dp"
         android:layout_height="wrap_content"
         android:text="@string/exit_label" />
 
