@@ -2,11 +2,15 @@
 package org.example.sudoku;
 
 import android.app.Activity;
+import android.widget.AnalogClock;
+import android.widget.Chronometer;
 import android.widget.DigitalClock;
+import android.widget.Toast;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,6 +20,7 @@ import android.view.View.OnClickListener;
 
 public class Sudoku extends Activity implements OnClickListener {
    private static final String TAG = "Sudoku";
+   private int digital = 1;
    
    /** Called when the activity is first created. */
    @Override
@@ -32,10 +37,15 @@ public class Sudoku extends Activity implements OnClickListener {
       aboutButton.setOnClickListener(this);
       View exitButton = findViewById(R.id.exit_button);
       exitButton.setOnClickListener(this);
-      
       DigitalClock dc = (DigitalClock) findViewById(R.id.digitalClock1);
+      if(digital == 0){
+    	 dc = null;
+    	 AnalogClock ac = (AnalogClock) findViewById(R.id.analogClock1);
+      }
    }
 
+ 
+   
    @Override
    protected void onResume() {
       super.onResume();
@@ -46,11 +56,15 @@ public class Sudoku extends Activity implements OnClickListener {
    protected void onPause() {
       super.onPause();
       Music.stop(this);
+
    }
 
    // ...
    public void onClick(View v) {
       switch (v.getId()) {
+      case R.id.continue_button:
+    	  startGame(Game.DIFFICULTY_CONTINUE);
+    	  break;
       case R.id.about_button:
          Intent i = new Intent(this, About.class);
          startActivity(i);
@@ -98,6 +112,8 @@ public class Sudoku extends Activity implements OnClickListener {
            .show();
    }
 
+ 
+   
    /** Start a new game with the given difficulty level */
    private void startGame(int i) {
       Log.d(TAG, "clicked on " + i);
@@ -105,4 +121,6 @@ public class Sudoku extends Activity implements OnClickListener {
       intent.putExtra(Game.KEY_DIFFICULTY, i);
       startActivity(intent);
    }
+   
+   
 }

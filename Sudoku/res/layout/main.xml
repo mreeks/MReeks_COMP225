@@ -1,49 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background"
+    android:fadingEdge="horizontal"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="30dip"
+    tools:context=".Game" >
 
-<LinearLayout
-   xmlns:android="http://schemas.android.com/apk/res/android"
-   android:orientation="vertical"
-   android:layout_width="fill_parent"
-   android:layout_height="fill_parent"
-   android:background="@color/background"
-   android:gravity="center"
-   android:padding="30dip">
-   <TextView
-      android:text="@string/main_title"
-      android:layout_height="wrap_content"
-      android:layout_width="wrap_content"
-      android:layout_marginBottom="25dip"
-      android:textSize="24.5sp" />
-   <Button
-      android:id="@+id/continue_button"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/continue_label" />
-   <Button
-      android:id="@+id/new_button"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/new_game_label" />
-   <Button
-      android:id="@+id/about_button"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/about_label" />
-   <Button
-      android:id="@+id/exit_button"
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:text="@string/exit_label" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dip"
+        android:text="@string/main_title"
+        android:textColor="@color/puzzle_background"
+        android:textSize="24.5sp" />
+
+    <Button
+        android:id="@+id/continue_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/continue_label" />
+
+    <Button
+        android:id="@+id/new_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_game_label" />
+
+    <Button
+        android:id="@+id/about_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/about_label" />
+
+    <Button
+        android:id="@+id/exit_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/exit_label" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/clock_label"
         android:textAppearance="?android:attr/textAppearanceLarge" />
- 
+
+    <AnalogClock
+        android:id="@+id/analogClock1"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="@string/clock_label" />
+
     <DigitalClock
         android:id="@+id/digitalClock1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/clock_label" />
+
 </LinearLayout>

@@ -4,6 +4,7 @@ package org.example.sudoku;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
@@ -11,11 +12,13 @@ import android.widget.Toast;
 public class Game extends Activity {
    private static final String TAG = "Sudoku";
 
+   private static final String PREF_PUZZLE = "puzzle" ;
    public static final String KEY_DIFFICULTY =
       "org.example.sudoku.difficulty";
    public static final int DIFFICULTY_EASY = 0;
    public static final int DIFFICULTY_MEDIUM = 1;
    public static final int DIFFICULTY_HARD = 2;
+   public static final int DIFFICULTY_CONTINUE = -1;
 
    private int puzzle[];
 
@@ -55,11 +58,16 @@ public class Game extends Activity {
       Music.play(this, R.raw.game);
    }
 
+
+	
    @Override
    protected void onPause() {
       super.onPause();
       Music.stop(this);
-   }
+      getPreferences(MODE_PRIVATE).edit().putString(PREF_PUZZLE,
+    		  toPuzzleString(puzzle)).commit();
+    		  }
+   
 
    /** Given a difficulty level, come up with a new puzzle */
    private int[] getPuzzle(int diff) {
@@ -72,6 +80,9 @@ public class Game extends Activity {
       case DIFFICULTY_MEDIUM:
          puz = mediumPuzzle;
          break;
+      case DIFFICULTY_CONTINUE:
+    	  puz = getPreferences(MODE_PRIVATE).getString(PREF_PUZZLE,
+    			  easyPuzzle);
       case DIFFICULTY_EASY:
       default:
          puz = easyPuzzle;
